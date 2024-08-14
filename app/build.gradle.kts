@@ -17,7 +17,7 @@ android {
                 load(File("signing.properties").reader())
             }
 
-            storeFile = File(properties.getProperty("storeFilePath"))
+            storeFile = File(project.rootDir, properties.getProperty("storeFilePath"))
             storePassword = properties.getProperty("storePassword")
             keyPassword = properties.getProperty("keyPassword")
             keyAlias = properties.getProperty("keyAlias")
