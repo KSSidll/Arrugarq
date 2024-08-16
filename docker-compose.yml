@@ -12,9 +12,10 @@ services:
         cp signing.properties __apk_build_repo__ &&
         cp keystore.jks __apk_build_repo__ &&
         cd __apk_build_repo__ &&
-        git checkout d60393ec7bf880fb1930fd2fa41c57518302932f &&
+        git checkout 57c51ad34cff6ec9354930979956c841b2d2d4f1 &&
         chmod +x ./gradlew &&
         ./gradlew clean assembleRelease --no-build-cache --no-configuration-cache --no-daemon &&
+        apksigner verify app/build/outputs/apk/release/app-release.apk &&
         rm -Rf /build/output/* &&
         cp -r app/build/outputs/apk/release/* /build/output
       "
